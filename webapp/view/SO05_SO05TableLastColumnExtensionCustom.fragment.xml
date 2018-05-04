@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:me="sap.me" xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<!-- This extension point can be used to add fields to columns -->
+	<!--<Column xmlns="sap.m" id="SO05_Col_Status_clone" hAlign="Center" width="14%" minScreenWidth="Tablet" demandPopin="true">
+							<header>
+								<Text id="SO05_Lbl_Status_clone" text="{i18n&gt;Status}"/>
+							</header>
+						</Column> -->
+					
+						<Column id="SO05_Col_Quantity_ext" minScreenWidth="Phone"
+							width="12%" hAlign="Right" demandPopin="true">
+							<header>
+								<Text id="SO05_Lbl_Quantity_ext" text="Quantity" />
+								<!-- <Text id="SO05_Lbl_Quantity" text="{/#SalesOrderItemDeliveryOverdueQuery/OrderQuantity/@sap:label}" 
+									/> -->
+							</header>
+						</Column>
+						<Column id="SO05_Col_Unit_ext" minScreenWidth="Phone"
+							width="12%" hAlign="Right" demandPopin="true">
+							<header>
+								<Text id="SO05_Lbl_Unit_ext" text="Unit" />
+								<!-- <Text id="SO05_Lbl_Quantity" text="{/#SalesOrderItemDeliveryOverdueQuery/OrderQuantity/@sap:label}" 
+									/> -->
+							</header>
+						</Column>
+							<Column xmlns="sap.m" id="SO05_Col_CustomField1" hAlign="Center" width="14%" minScreenWidth="Tablet" demandPopin="true">
+							<header>
+								<Text id="SO05_Lbl_CustomField1" text="Status2"/>
+							</header>
+						</Column>
+					
+</core:FragmentDefinition>

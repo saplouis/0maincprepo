@@ -1,0 +1,168 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0"
+		},
+		"title": "{{FULLSCREEN_TITLE}}",
+		"sourceTemplate": {
+			"id": "fioriexttemplate.replaceservicecomponent",
+			"version": "1.4.0"
+		},
+		"dataSources": {
+			"sofm": {
+				"uri": "/sap/opu/odata/sap/ZF0029_EXTENSION_SRV/",
+				"settings": {
+					"localUri": "./localService/metadata.xml"
+				}
+			},
+			"sois": {
+				"uri": "/sap/opu/odata/sap/ZF0029_EXTENSION_SRV/",
+				"settings": {
+					"localUri": "/model/services/sofm/metadata.xml"
+				}
+			}
+		},
+		"i18n": "i18n/i18n.properties"
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb,sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"dependencies": {
+			"minUI5Version": "1.48.1",
+			"libs": {
+				"sap.apf": {
+					"minVersion": ""
+				},
+				"sap.ca.scfld.md": {
+					"minVersion": ""
+				},
+				"sap.ca.ui": {
+					"minVersion": ""
+				},
+				"sap.chart": {
+					"minVersion": ""
+				},
+				"sap.collaboration": {
+					"minVersion": ""
+				},
+				"sap.f": {
+					"minVersion": ""
+				},
+				"sap.fe": {
+					"minVersion": ""
+				},
+				"sap.fileviewer": {
+					"minVersion": ""
+				},
+				"sap.fiori": {
+					"minVersion": ""
+				},
+				"sap.gantt": {
+					"minVersion": ""
+				},
+				"sap.landvisz": {
+					"minVersion": ""
+				},
+				"sap.m": {
+					"minVersion": ""
+				},
+				"sap.makit": {
+					"minVersion": ""
+				},
+				"sap.me": {
+					"minVersion": ""
+				},
+				"sap.ndc": {
+					"minVersion": ""
+				},
+				"sap.ovp": {
+					"minVersion": ""
+				},
+				"sap.portal.ui5": {
+					"minVersion": ""
+				},
+				"sap.rules.ui": {
+					"minVersion": ""
+				}
+			}
+		},
+		"extends": {
+			"component": "cus.sd.sofulfil.monitor.s1",
+			"extensions": {
+				"sap.ui.viewExtensions": {
+					"cus.sd.sofulfil.monitor.s1.view.SO05": {
+						"SO05TableLastColumnExtension": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.view.SO05_SO05TableLastColumnExtensionCustom",
+							"type": "XML"
+						},
+						"SO05TableLastCellExtension": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.view.SO05_SO05TableLastCellExtensionCustom",
+							"type": "XML"
+						}
+					}
+				},
+				"sap.ui.controllerExtensions": {
+					"cus.sd.sofulfil.monitor.s1.view.SO05": {
+						"controllerName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.view.SO05Custom"
+					},
+					"cus.sd.sofulfil.monitor.s1.view.SOALL": {
+						"controllerName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.view.SOALLCustom"
+					},
+					"cus.sd.sofulfil.monitor.s1.Main": {
+						"controllerName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.MainCustom"
+					}
+				},
+				"sap.ui.viewModifications": {
+					"cus.sd.sofulfil.monitor.s1.view.SO05": {
+						"SO05_ObN_Item": {
+							"visible": false
+						},
+						"SO05_Col_Quantity": {
+							"visible": false
+						}
+					}
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": false
+		},
+		"config": {
+			"sap.ca.serviceConfigs": [
+				{
+					"name": "sofm",
+					"isDefault": true
+				}
+			],
+			"sap.ca.i18Nconfigs": {
+				"bundleName": "cus.sd.sofulfil.monitor.s1.SOFULFIL_MONS1Extension.i18n.i18n"
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zux_f0029_louis/webapp",
+		"_version": "1.1.0"
+	}
+}

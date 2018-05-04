@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:me="sap.me" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<!-- This extension point can be used to add fields to cells -->
+	<!--<ObjectStatus xmlns="sap.m" id="SO05_ObS_Item_clone" text="{path:'issue>status/text'}" state="{path: 'issue>status/info'}"/> -->
+	<Input xmlns="sap.m" id="SO05_Txt_Item_Qty_ext" value="{path:'issue>OrderQuantity'}"/>
+	<Text xmlns="sap.m" id="SO05_Txt_Item_Unit_ext" text="{path:'issue>OrderQuantityUnit'}"/>
+	<Select selectedKey="{path:'issue>Status2'}">
+	            <core:Item key="" text="" />
+				<core:Item key="TE01" text="check" />
+				<core:Item key="TE02" text="fixed" />
+	</Select>
+</core:FragmentDefinition>

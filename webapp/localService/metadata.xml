@@ -1,0 +1,945 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='vocabularies.Common.v1',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="SD_SOFM_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="MfgOrderQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderTypeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Type Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaterialName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Production Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderPlannedTotalQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="ProductionUnit" sap:label="Total Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ProductionUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Production Unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="SalesOrderItemNetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="SalesOrderTransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderTransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ProductionSupervisor" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Prodn Supervisor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionSupervisorName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Prodn Superv. Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderScheduledStartDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Scheduled Start Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderScheduledEndDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Scheduled End Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderScheduledReleaseDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Scheduled Release Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderActualStartDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Actual Start Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderActualEndDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Actual End Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderActualReleaseDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Actual Release Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MfgOrderConfirmedEndDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Confirmed End Date" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="PurchaseOrderQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Doc. Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Doc. Type Descript." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingGroupName" Type="Edm.String" Nullable="false" MaxLength="18" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Grp Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingOrganisation" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingOrganisationName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purch. Org. Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentOrderDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SupplierName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Name of Supplier" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentStatusName" Type="Edm.String" Nullable="false" MaxLength="60" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Short Descript." sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SOFMManufacturingContactQuery" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_ManufacturingOrder"/>
+                </Key>
+                <Property Name="P_ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:parameter="mandatory" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Results" Relationship="SD_SOFM_SRV.ManufacturingContactQueryAssociation" FromRole="FromRole_ManufacturingContactQueryAssociation" ToRole="ToRole_ManufacturingContactQueryAssociation"/>
+            </EntityType>
+            <EntityType Name="SOFMManufacturingContactQueryResults" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenId"/>
+                </Key>
+                <Property Name="GenId" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Production Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsInternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Internal Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsExternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="External Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonFunction" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Function" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonName" Type="Edm.String" Nullable="false" MaxLength="18" sap:aggregation-role="dimension" sap:unicode="false" sap:label="MRP Controller Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="MRP Controller Phone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Extension" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalPhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalMobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="241" sap:aggregation-role="dimension" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SOFMInSupplyContactQuery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_ManufacturingOrder"/>
+                    <PropertyRef Name="P_PurchasingDocument"/>
+                </Key>
+                <Property Name="P_ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Results" Relationship="SD_SOFM_SRV.InSupplyContactQueryAssociation" FromRole="FromRole_InSupplyContactQueryAssociation" ToRole="ToRole_InSupplyContactQueryAssociation"/>
+            </EntityType>
+            <EntityType Name="SOFMInSupplyContactQueryResults" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Order Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Order Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Purchasing Doc. Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Production Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Purch. organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Purchasing Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsInternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Internal Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsExternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="External Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonFunction" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Function" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonName" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="MRP Controller Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="MRP Controller Phone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Extension" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalPhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalMobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="DeliveryDocumentItemIncompleteQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Outbound Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Outb. Delivery Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocumentItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DeliveryDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocumentItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocumentItemCatName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActualDeliveryQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="DeliveryQuantityUnit" sap:label="Delivery Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DeliveryQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ItemGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemGenIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Billing Data..." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemDeliveryIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Data for Deliv." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemDelivIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemPickingIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item data pck/putawy" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemPickingIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemPackingIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item data packaging" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemPackingIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemGdsMvtIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item data: GM" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemGdsMvtIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItemIncompletionQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaterialName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="TargetQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TargetQuantityUnit" sap:label="Target Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TargetQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Target Quantity UoM" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Route" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RouteName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemGenIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Billing Data..." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PricingIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Pricing" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PricingIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemDeliveryIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Data for Deliv." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemDelivIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItemUnconfirmedQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="BillingDocumentQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentTypeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payer Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="AccountingTransferStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Posting Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AccountingTransferStatusDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Short Descript." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AccountingPostingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Posting Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentIsCancelled" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Cancelled" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payment Terms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTermsName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderCreditManagementQuery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_BusinessPartner"/>
+                    <PropertyRef Name="P_CreditSegment"/>
+                    <PropertyRef Name="P_ExchangeRateType"/>
+                </Key>
+                <Property Name="P_BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Business Partner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_CreditSegment" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Credit Segment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_ExchangeRateType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Exchange rate type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Results" Relationship="SD_SOFM_SRV.SalesOrderCreditMgmtAssociation" FromRole="FromRole_SalesOrderCreditMgmtAssociation" ToRole="ToRole_SalesOrderCreditMgmtAssociation"/>
+            </EntityType>
+            <EntityType Name="SalesOrderCreditMgmtQueryResults" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Business Partner" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreditSegment" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Credit Segment" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreditSegmentName" Type="Edm.String" Nullable="false" MaxLength="50" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CreditRiskClass" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Risk Class" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreditRiskClassName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Risk Class" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CustomerCreditExposureAmount" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="CreditSegmentCurrency" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CreditSegmentCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="CustomerCreditLimitAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="CreditSegmentCurrency" sap:label="Credit Limit" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CustomerRemainingCreditAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="CreditSegmentCurrency" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CreditLimitUtilizationPct" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="1" sap:aggregation-role="measure" sap:unicode="false" sap:label="Crd Lmt Used %" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ExchangeRateType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaximumDunningLevel" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Highest Dunn. Level" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="SalesAmountInSalesCrcy" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="SalesCurrency" sap:label="Sales" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderProcessItemQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="TargetQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TargetQuantityUnit" sap:label="Target Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TargetQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Target Quantity UoM" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ShippingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InvoicingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Invoicing Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippedQuantityInOrderQtyUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Shipped Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InvoicedQuantityInOrderQtyUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Invoiced Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="NextPlannedProdAvailDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="measure" sap:unicode="false" sap:label="Deliv. Creation Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Reqd Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallSDProcessStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Overall Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallSDDocumentRejectionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Rejection Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SDProcessStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Overall Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SDDocumentRejectionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Rejection Status" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderFulfillmentIssueQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="SD Document Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Outbound Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Manufacturing Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ManufacturingOrderCategory" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Issue" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:text="IssueName" sap:unicode="false" sap:label="Issue" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IssueName" Type="Edm.String" Nullable="false" MaxLength="60" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="IssueCategory" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:text="IssueCategoryName" sap:unicode="false" sap:label="Issue Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IssueCategoryName" Type="Edm.String" Nullable="false" MaxLength="60" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Issue Category" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DueHorizonDurationInDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Horizon Next Action" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="NmbrOfIssuesInOrder" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Issues in Order" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesInDelivery" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Issues in Delivery" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesInInvoice" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Issues in Invoice" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesInSupply" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Issues in Supply" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfAllIssues" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Issues Total" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfItemsInOrder" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Item Issues in Order" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfItemsInDelivery" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Items Issus in Deliv" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfItemsInSupply" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Item Issues in Sup" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:text="SalesOrderTypeName" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Document Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:text="CreatedByUserFullName" sap:unicode="false" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUserFullName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:text="SalesOrganizationName" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:text="DistributionChannelName" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannelName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:text="DivisionName" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:text="SalesGroupName" sap:unicode="false" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesGroupName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Group Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOffice" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:text="SalesOfficeName" sap:unicode="false" sap:label="Sales Office" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOfficeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Office Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:text="SoldToPartyName" sap:unicode="false" sap:label="Sold-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:text="ShipToPartyName" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerClassification" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:text="CustomerClassificationDesc" sap:unicode="false" sap:label="Customer classific." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerClassificationDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer Classification Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResponsibleEmployee" Type="Edm.String" Nullable="false" MaxLength="8" sap:aggregation-role="dimension" sap:text="ResponsibleEmployeeName" sap:unicode="false" sap:label="Employee Responsible" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResponsibleEmployeeName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderByCustomer" Type="Edm.String" Nullable="false" MaxLength="35" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer Reference" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Reqd Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerProject" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:text="CustomerProjectName" sap:unicode="false" sap:label="Customer Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerProjectName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Cust Proj Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:text="PayerPartyName" sap:unicode="false" sap:label="Payer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerPartyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payer Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreditSegment" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:text="CreditSegmentName" sap:unicode="false" sap:label="Credit Segment" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreditSegmentName" Type="Edm.String" Nullable="false" MaxLength="50" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="NmbrOfIssuesIncomplete" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Incomplete SlsOrd" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesDeliveryBlkd" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesCreditBlocked" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Credit Block SlsOrd" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesBillingBlocked" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Billing Block" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesOverdueDelivery" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Delivery Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesUnconfirmedQts" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Unconfm Quantities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesShippingBlocked" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Shipping Block" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesIncompleteInDeliv" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Incomplete Deliv" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesCreditBlkdInDeliv" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Credit Block Deliv" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesShippingIssue" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Shipping Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesNotTransferred" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="No Accounting" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesInvoicingIssue" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Invoicing Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesPurchasingIssue" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Purchasing Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfIssuesMfgIssue" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Manufacturing Issue" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TotalNetAmountInStatisticsCrcy" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="StatisticsCurrency" sap:label="Net Value in St.Crcy" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="StatisticsCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Statistics Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="DueDateStatusDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Due Date Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDateStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="DueDateStatusDesc" sap:unicode="false" sap:label="Due Date Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:text="DeliveryBlockReasonText" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReasonText" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery block desc." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HeaderBillingBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:text="BillingBlockReasonDescription" sap:unicode="false" sap:label="Billing Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingBlockReasonDescription" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block Desc." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HdrGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="HdrGenIncompletionStatusDesc" sap:unicode="false" sap:label="Header Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGenIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="General Incompletion" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HeaderDelivIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="HdrDelivIncompletionStatusDesc" sap:unicode="false" sap:label="Header Delivery Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrDelivIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Incompltn" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HeaderBillgIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="HdrBillgIncompletionStatusDesc" sap:unicode="false" sap:label="Header Billing Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrBillgIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Incompletion" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OverallPricingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="OverallPrcIncompletionStsDesc" sap:unicode="false" sap:label="Pricing" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPrcIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Itms Prcg Incompltn" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OvrlItmBillingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="OvrlItmBillgIncompltnStsDesc" sap:unicode="false" sap:label="Item Billing Data..." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OvrlItmBillgIncompltnStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Itms Billg Incompltn" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OvrlItmDelivIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="OvrlItmDelivIncompltnStsDesc" sap:unicode="false" sap:label="Item Delivery Data.." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OvrlItmDelivIncompltnStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Itms Deliv.Incompltn" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OvrlItmGeneralIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:text="OvrlItmGenIncompletionStsDesc" sap:unicode="false" sap:label="Item Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OvrlItmGenIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Itms Gen. Incompltn" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsDeliveryBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Blocked" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsBillingBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Blocked" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsPotentialFutureIssue" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Potential Issue" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ZZ1_Addfield_Yoshi_SDH" Type="Edm.String" MaxLength="20" sap:aggregation-role="dimension" sap:field-control="ZZ1_Addfield_Yoshi_SDHF" sap:label="Add field_Yoshi" sap:is-extension-field="true"/>
+                <Property Name="ZZ1_Addfield_Yoshi_SDHF" Type="Edm.Byte" sap:aggregation-role="dimension" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+            </EntityType>
+            <EntityType Name="SalesOrderQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Document Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="SD Document Category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationTime" Type="Edm.Time" Nullable="false" Precision="0" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannelName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOffice" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Office" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerClassification" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer classific." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerClassificationDescription" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer Classification Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Bill-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Bill-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PayerPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payer Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderByCustomer" Type="Edm.String" Nullable="false" MaxLength="35" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer Reference" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="CompleteDeliveryIsDefined" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Complete Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReasonText" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery block desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Reqd Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingCondition" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Conditions" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingConditionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassification" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassificationName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsTransferLocation" Type="Edm.String" Nullable="false" MaxLength="28" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms (Part 2)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsLocation1" Type="Edm.String" Nullable="false" MaxLength="70" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Location 1" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsLocation2" Type="Edm.String" Nullable="false" MaxLength="70" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Location 2" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsVersion" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Version" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsVersionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingType" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderBillingBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingBlockReasonDescription" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payment Terms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTermsName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallSDDocumentRejectionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Rejection Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallDeliveryStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallDelivConfStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Confirmed" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerProject" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Customer Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerProjectName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Cust Proj Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGenIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="General Incompletion" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderBillgIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Billing Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrBillgIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Incompletion" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderDelivIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Delivery Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrDelivIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Incompltn" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPricingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Pricing" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPrcIncompletionStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Itms Prcg Incompltn" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsDeliveryBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Blocked" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsBillingBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Blocked" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ZZ1_Addfield_Yoshi_SDH" Type="Edm.String" MaxLength="20" sap:aggregation-role="dimension" sap:field-control="ZZ1_Addfield_Yoshi_SDHF" sap:label="Add field_Yoshi" sap:is-extension-field="true"/>
+                <Property Name="ZZ1_Addfield_Yoshi_SDHF" Type="Edm.Byte" sap:aggregation-role="dimension" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+            </EntityType>
+            <EntityType Name="SalesOrderScheduleLineQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScheduleLine" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Schedule line number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsRequestedDelivSchedLine" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Requested Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScheduleLineOrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="dimension" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsConfirmedDelivSchedLine" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Confirmed Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConfirmedDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConfdOrderQtyByMatlAvailCheck" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Confirmed Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ProductAvailabilityDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material Avail. Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DelivBlockReasonForSchedLine" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DelivBlkReasonForSchedLineDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery block desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OpenConfdDelivQtyInOrdQtyUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Open Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DeliveredQtyInOrderQtyUnit" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Delivered Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="DeliveryDocumentQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OutboundDelivery" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Outbound Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompleteDeliveryIsDefined" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Complete Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReasonText" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery block desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderGrossWeight" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="dimension" sap:unicode="false" sap:unit="HeaderWeightUnit" sap:label="Total Weight" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderNetWeight" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="dimension" sap:unicode="false" sap:unit="HeaderWeightUnit" sap:label="Net Weight" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderWeightUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Weight unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="TotalNumberOfPackage" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Number of Packages" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActualDeliveryAmount" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="5" sap:aggregation-role="dimension" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Invoice Amount" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PickingDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Picking Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingType" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingTypeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingCondition" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Conditions" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingConditionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransportationPlanningDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Transptn Plang Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlannedGoodsIssueDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Pland Gds Mvmnt Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActualGoodsMovementDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Act. Gds Mvmnt Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsTransferLocation" Type="Edm.String" Nullable="false" MaxLength="28" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms (Part 2)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassification" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassificationName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderBillingBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingBlockReasonDescription" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallSDProcessStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Overall Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallSDProcessStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPickingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Overall Pick.Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPickingStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallGoodsMovementStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Total Gds Mvt Stat." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallGoodsMovementStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallWarehouseActivityStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Overall WM Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OvrlWarehouseActyStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPackingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Packing Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverallPackingStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransportationPlanningStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Trns.Plan.Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TransportationPlanningStsDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGeneralIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGenIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="General Incompletion" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderBillgIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Billing Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrBillgIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Incompletion" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderPackingIncompletionSts" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Head.Data Packaging" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrPackingIncompltnStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderPickgIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Head.Data Pck/Putawy" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrPickgIncompltnStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HeaderDelivIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Header Delivery Data" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrDelivIncompletionStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Incompltn" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGoodsMvtIncompletionStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Head. Data GM" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HdrGoodsMvtIncompltnStatusDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderProcessFlowQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PrecedingDocument" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Preceding Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SubsequentDocument" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Subsequent Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PrecedingDocumentCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Preceding Doc Cat" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SubsequentDocumentCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Subsequent Doc Cat" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocumentIsRequired" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Required" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillingDocumentIsRequired" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Required" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sold-To Party Name" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="PurchaseOrderScheduleLineQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScheduleLine" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Schedule Line" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScheduleLineDeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RoughGoodsReceiptQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="PurgDocOrderQuantityUnit" sap:label="Quantity delivered" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ScheduleLineOrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="PurgDocOrderQuantityUnit" sap:label="Scheduled Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurgDocOrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Unit" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="GoodsReceiptIsExpected" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Goods receipt" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsCompletelyDelivered" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Completed" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsFinallyInvoiced" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Final Invoice" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SOFMContactQueryResults" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Issue" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Issue" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Personnel" Type="Edm.String" Nullable="false" MaxLength="8" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Personnel Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PersonnelName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Business Partner" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="First Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Last Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartnerFunction" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Partner Function" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartnerFunctionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonFunction" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Function" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonFunctionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="241" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Extension" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="241" sap:aggregation-role="dimension" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AddressID" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Address" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsInternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Internal Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsExternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="External Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalPhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalMobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SOFMContactQuery" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_SalesOrder"/>
+                    <PropertyRef Name="P_DeliveryDocument"/>
+                    <PropertyRef Name="P_Issue"/>
+                </Key>
+                <Property Name="P_SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:parameter="mandatory" sap:unicode="false" sap:label="Sales Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_DeliveryDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:parameter="mandatory" sap:unicode="false" sap:label="Delivery" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_Issue" Type="Edm.String" Nullable="false" MaxLength="4" sap:parameter="mandatory" sap:unicode="false" sap:label="Issue" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Results" Relationship="SD_SOFM_SRV.ContactQueryAssociation" FromRole="FromRole_ContactQueryAssociation" ToRole="ToRole_ContactQueryAssociation"/>
+            </EntityType>
+            <EntityType Name="PurchaseOrderItemPurchasingIssueQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DueDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="measure" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales document type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="SalesOrderItemNetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="SalesOrderTransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderTransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="PurchasingDocumentItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Short Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentOrderQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="PurgDocOrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PurgDocOrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Order Unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="IsCompletelyDelivered" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Completed" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsFinallyInvoiced" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Final Invoice" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SuplrConfIsPending" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Boolean Variable (X=true, -=false, space=unknown)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="7" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SOFMPurchasingContactQuery" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_PurchasingDocument"/>
+                </Key>
+                <Property Name="P_PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:parameter="mandatory" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Results" Relationship="SD_SOFM_SRV.PurchasingContactQueryAssociation" FromRole="FromRole_PurchasingContactQueryAssociation" ToRole="ToRole_PurchasingContactQueryAssociation"/>
+            </EntityType>
+            <EntityType Name="SOFMPurchasingContactQueryResults" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchasingDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Doc. Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purch. organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsInternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Internal Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactIsExternal" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="External Contact" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonFunction" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Function" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ContactPersonName" Type="Edm.String" Nullable="false" MaxLength="18" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Purchasing Grp Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Tel.no. purch. group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PhoneNumberExtension" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Extension" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalPhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternationalMobilePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Telephone number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="241" sap:aggregation-role="dimension" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItemDeliveryBlockedQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryBlockReasonText" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery block desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Route" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RouteName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsDeliveryBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Delivery Blocked" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItemBillingBlockedQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="TargetQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TargetQuantityUnit" sap:label="Target Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TargetQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Target Quantity UoM" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassification" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsClassificationName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsTransferLocation" Type="Edm.String" Nullable="false" MaxLength="28" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms (Part 2)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsLocation1" Type="Edm.String" Nullable="false" MaxLength="70" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Location 1" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsLocation2" Type="Edm.String" Nullable="false" MaxLength="70" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Location 2" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsVersion" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Incoterms Version" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IncotermsVersionName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingBlockReason" Type="Edm.String" Nullable="false" MaxLength="2" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ItemBillingBlockReasonDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Block Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Payment Terms" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerPaymentTermsName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Bill-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BillToPartyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Bill-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Route" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Route" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RouteName" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CtrlgObjStatusIsBillingBlkd" Type="Edm.String" Nullable="false" MaxLength="1" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Billing Blocked" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItemDeliveryOverdueQuery" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" sap:aggregation-role="dimension" sap:unicode="false" sap:label="GENERATED_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DueDays" Type="Edm.Int32" Nullable="false" sap:aggregation-role="measure" sap:unicode="false" sap:label="Next Action in Days" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DueDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="measure" sap:unicode="false" sap:label="Due date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderItemCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item category" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemCategoryName" Type="Edm.String" Nullable="false" MaxLength="20" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderItemText" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Item Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Sales unit" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unicode="false" sap:unit="TransactionCurrency" sap:label="Net Value" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Document currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Shipping Point" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingPointName" Type="Edm.String" Nullable="false" MaxLength="30" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-to party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" Nullable="false" MaxLength="166" sap:aggregation-role="dimension" sap:unicode="false" sap:label="Ship-To Party Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Status2" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="test" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <ComplexType Name="DeploymentOptions">
+                <Property Name="IsS4h" Type="Edm.String" Nullable="false" sap:label="S/4HANA system" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsS4hCloud" Type="Edm.String" Nullable="false" sap:label="SIMPLIFY_PUBLIC_CLOUD or SIMPLIFY_MANAGED_CLOUD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsS4hManagedCloud" Type="Edm.String" Nullable="false" sap:label="SIMPLIFY_MANAGED_CLOUD is active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsS4hOnPremise" Type="Edm.String" Nullable="false" sap:label="SIMPLIFY_ON_PREMISE is active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsS4hPublicCloud" Type="Edm.String" Nullable="false" sap:label="SIMPLIFY_PUBLIC_CLOUD is active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <ComplexType Name="ReturnInfo">
+                <Property Name="Success" Type="Edm.Boolean" Nullable="false" sap:label="Boolean Variable (X=true, -=false, space=unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="No_attachments" Type="Edm.Boolean" Nullable="false" sap:label="Boolean Variable (X=true, -=false, space=unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <Association Name="ManufacturingContactQueryAssociation" sap:content-version="1">
+                <End Type="SD_SOFM_SRV.SOFMManufacturingContactQuery" Multiplicity="1" Role="FromRole_ManufacturingContactQueryAssociation"/>
+                <End Type="SD_SOFM_SRV.SOFMManufacturingContactQueryResults" Multiplicity="*" Role="ToRole_ManufacturingContactQueryAssociation"/>
+            </Association>
+            <Association Name="SalesOrderCreditMgmtAssociation" sap:content-version="1">
+                <End Type="SD_SOFM_SRV.SalesOrderCreditManagementQuery" Multiplicity="1" Role="FromRole_SalesOrderCreditMgmtAssociation"/>
+                <End Type="SD_SOFM_SRV.SalesOrderCreditMgmtQueryResults" Multiplicity="*" Role="ToRole_SalesOrderCreditMgmtAssociation"/>
+            </Association>
+            <Association Name="PurchasingContactQueryAssociation" sap:content-version="1">
+                <End Type="SD_SOFM_SRV.SOFMPurchasingContactQuery" Multiplicity="1" Role="FromRole_PurchasingContactQueryAssociation"/>
+                <End Type="SD_SOFM_SRV.SOFMPurchasingContactQueryResults" Multiplicity="*" Role="ToRole_PurchasingContactQueryAssociation"/>
+            </Association>
+            <Association Name="ContactQueryAssociation" sap:content-version="1">
+                <End Type="SD_SOFM_SRV.SOFMContactQuery" Multiplicity="1" Role="FromRole_ContactQueryAssociation"/>
+                <End Type="SD_SOFM_SRV.SOFMContactQueryResults" Multiplicity="*" Role="ToRole_ContactQueryAssociation"/>
+            </Association>
+            <Association Name="InSupplyContactQueryAssociation" sap:content-version="1">
+                <End Type="SD_SOFM_SRV.SOFMInSupplyContactQuery" Multiplicity="1" Role="FromRole_InSupplyContactQueryAssociation"/>
+                <End Type="SD_SOFM_SRV.SOFMInSupplyContactQueryResults" Multiplicity="*" Role="ToRole_InSupplyContactQueryAssociation"/>
+            </Association>
+            <EntityContainer Name="SD_SOFM_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MfgOrderQuerySet" EntityType="SD_SOFM_SRV.MfgOrderQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PurchaseOrderQuerySet" EntityType="SD_SOFM_SRV.PurchaseOrderQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMManufacturingContactQuerySet" EntityType="SD_SOFM_SRV.SOFMManufacturingContactQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMManufacturingContactQueryResultsSet" EntityType="SD_SOFM_SRV.SOFMManufacturingContactQueryResults" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMInSupplyContactQuerySet" EntityType="SD_SOFM_SRV.SOFMInSupplyContactQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMInSupplyContactQueryResultsSet" EntityType="SD_SOFM_SRV.SOFMInSupplyContactQueryResults" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DeliveryDocumentItemIncompleteQuerySet" EntityType="SD_SOFM_SRV.DeliveryDocumentItemIncompleteQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemIncompletionQuerySet" EntityType="SD_SOFM_SRV.SalesOrderItemIncompletionQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemUnconfirmedQuerySet" EntityType="SD_SOFM_SRV.SalesOrderItemUnconfirmedQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BillingDocumentQuerySet" EntityType="SD_SOFM_SRV.BillingDocumentQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderCreditManagementQuerySet" EntityType="SD_SOFM_SRV.SalesOrderCreditManagementQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderCreditMgmtQueryResultsSet" EntityType="SD_SOFM_SRV.SalesOrderCreditMgmtQueryResults" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderProcessItemQuerySet" EntityType="SD_SOFM_SRV.SalesOrderProcessItemQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderFulfillmentIssueQuerySet" EntityType="SD_SOFM_SRV.SalesOrderFulfillmentIssueQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderQuerySet" EntityType="SD_SOFM_SRV.SalesOrderQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderScheduleLineQuerySet" EntityType="SD_SOFM_SRV.SalesOrderScheduleLineQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DeliveryDocumentQuerySet" EntityType="SD_SOFM_SRV.DeliveryDocumentQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderProcessFlowQuerySet" EntityType="SD_SOFM_SRV.SalesOrderProcessFlowQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PurchaseOrderScheduleLineQuerySet" EntityType="SD_SOFM_SRV.PurchaseOrderScheduleLineQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMContactQueryResultsSet" EntityType="SD_SOFM_SRV.SOFMContactQueryResults" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMContactQuerySet" EntityType="SD_SOFM_SRV.SOFMContactQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PurchaseOrderItemPurchasingIssueQuerySet" EntityType="SD_SOFM_SRV.PurchaseOrderItemPurchasingIssueQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMPurchasingContactQuerySet" EntityType="SD_SOFM_SRV.SOFMPurchasingContactQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SOFMPurchasingContactQueryResultsSet" EntityType="SD_SOFM_SRV.SOFMPurchasingContactQueryResults" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemDeliveryBlockedQuerySet" EntityType="SD_SOFM_SRV.SalesOrderItemDeliveryBlockedQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemBillingBlockedQuerySet" EntityType="SD_SOFM_SRV.SalesOrderItemBillingBlockedQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemDeliveryOverdueQuerySet" EntityType="SD_SOFM_SRV.SalesOrderItemDeliveryOverdueQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="PurchasingContactQueryAssociationSet" Association="SD_SOFM_SRV.PurchasingContactQueryAssociation" sap:label="Purchasing Contact Query Association Set" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SOFMPurchasingContactQuerySet" Role="FromRole_PurchasingContactQueryAssociation"/>
+                    <End EntitySet="SOFMPurchasingContactQueryResultsSet" Role="ToRole_PurchasingContactQueryAssociation"/>
+                </AssociationSet>
+                <AssociationSet Name="ManufacturingContactQueryAssociationSet" Association="SD_SOFM_SRV.ManufacturingContactQueryAssociation" sap:label="Manufacturing Contact Query Association Set" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SOFMManufacturingContactQuerySet" Role="FromRole_ManufacturingContactQueryAssociation"/>
+                    <End EntitySet="SOFMManufacturingContactQueryResultsSet" Role="ToRole_ManufacturingContactQueryAssociation"/>
+                </AssociationSet>
+                <AssociationSet Name="ContactQueryAssociationSet" Association="SD_SOFM_SRV.ContactQueryAssociation" sap:label="Contact Query Association Set" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SOFMContactQuerySet" Role="FromRole_ContactQueryAssociation"/>
+                    <End EntitySet="SOFMContactQueryResultsSet" Role="ToRole_ContactQueryAssociation"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderCreditMgmtAssociation_AssocSet" Association="SD_SOFM_SRV.SalesOrderCreditMgmtAssociation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrderCreditManagementQuerySet" Role="FromRole_SalesOrderCreditMgmtAssociation"/>
+                    <End EntitySet="SalesOrderCreditMgmtQueryResultsSet" Role="ToRole_SalesOrderCreditMgmtAssociation"/>
+                </AssociationSet>
+                <AssociationSet Name="InSupplyContactQueryAssociation_AssocSet" Association="SD_SOFM_SRV.InSupplyContactQueryAssociation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SOFMInSupplyContactQuerySet" Role="FromRole_InSupplyContactQueryAssociation"/>
+                    <End EntitySet="SOFMInSupplyContactQueryResultsSet" Role="ToRole_InSupplyContactQueryAssociation"/>
+                </AssociationSet>
+                <FunctionImport Name="DEPLOYMENT_OPTIONS" ReturnType="SD_SOFM_SRV.DeploymentOptions" m:HttpMethod="GET"/>
+                <FunctionImport Name="SAVE_ATTACHMENTS" ReturnType="SD_SOFM_SRV.ReturnInfo" m:HttpMethod="GET">
+                    <Parameter Name="Temp_Key" Type="Edm.String" Mode="In" MaxLength="90"/>
+                    <Parameter Name="Permanent_Key" Type="Edm.String" Mode="In" MaxLength="10"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderFulfillmentIssueQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderFulfillmentIssueQuery/BillingDocument">
+                <Annotation Term="Common.SemanticObject" String="BillingDocument"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderScheduleLineQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.BillingDocumentQuery/BillingDocument">
+                <Annotation Term="Common.SemanticObject" String="BillingDocument"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderItemDeliveryBlockedQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderItemBillingBlockedQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderItemDeliveryOverdueQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderItemUnconfirmedQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderProcessItemQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderProcessFlowQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SOFMContactQueryResults/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.MfgOrderQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.PurchaseOrderItemPurchasingIssueQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.DeliveryDocumentItemIncompleteQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="SD_SOFM_SRV.SalesOrderItemIncompletionQuery/SalesOrder">
+                <Annotation Term="Common.SemanticObject" String="SalesOrder"/>
+            </Annotations>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZF0029_EXTENSION_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZF0029_EXTENSION_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

@@ -1,0 +1,205 @@
+{
+  "projectType": [
+    "com.watt.commonbuilder.sapui5clientbuild",
+    "sap.watt.uitools.ide.fiori"
+  ],
+  "generation": [
+    {
+      "templateId": "fioriexttemplate.extensionProject",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Mon, 26 Mar 2018 08:17:54 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.extendviewcomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 30 Mar 2018 01:14:49 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.extendcontrollercomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Tue, 03 Apr 2018 08:57:18 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.replaceservicecomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 30 Mar 2018 07:13:36 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.i18ncomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Mon, 02 Apr 2018 08:39:34 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.extendcontrollerhook",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Tue, 03 Apr 2018 09:12:06 GMT"
+    },
+    {
+      "templateId": "fioriexttemplate.hidecontrolcomponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Tue, 03 Apr 2018 09:31:59 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "extensibility": {
+    "controllers": {
+      "Main": "SOFULFIL_MONS1%2fMain.controller.js",
+      "DE01": "SOFULFIL_MONS1%2fview%2fDE01.controller.js",
+      "DE03": "SOFULFIL_MONS1%2fview%2fDE03.controller.js",
+      "DE03Item": "SOFULFIL_MONS1%2fview%2fDE03Item.controller.js",
+      "DE04": "SOFULFIL_MONS1%2fview%2fDE04.controller.js",
+      "DE05": "SOFULFIL_MONS1%2fview%2fDE05.controller.js",
+      "Empty": "SOFULFIL_MONS1%2fview%2fEmpty.controller.js",
+      "IN01": "SOFULFIL_MONS1%2fview%2fIN01.controller.js",
+      "IN02": "SOFULFIL_MONS1%2fview%2fIN02.controller.js",
+      "SO01": "SOFULFIL_MONS1%2fview%2fSO01.controller.js",
+      "SO01_Item": "SOFULFIL_MONS1%2fview%2fSO01_Item.controller.js",
+      "SO02": "SOFULFIL_MONS1%2fview%2fSO02.controller.js",
+      "SO02IssueDetailsInfo": "SOFULFIL_MONS1%2fview%2fSO02IssueDetailsInfo.controller.js",
+      "SO02Item": "SOFULFIL_MONS1%2fview%2fSO02Item.controller.js",
+      "SO03": "SOFULFIL_MONS1%2fview%2fSO03.controller.js",
+      "SO04": "SOFULFIL_MONS1%2fview%2fSO04.controller.js",
+      "SO04IssueDetailsInfo": "SOFULFIL_MONS1%2fview%2fSO04IssueDetailsInfo.controller.js",
+      "SO04Item": "SOFULFIL_MONS1%2fview%2fSO04Item.controller.js",
+      "SO05": "SOFULFIL_MONS1%2fview%2fSO05.controller.js",
+      "SO05Item": "SOFULFIL_MONS1%2fview%2fSO05Item.controller.js",
+      "SO06": "SOFULFIL_MONS1%2fview%2fSO06.controller.js",
+      "SO06Item": "SOFULFIL_MONS1%2fview%2fSO06Item.controller.js",
+      "SOALL": "SOFULFIL_MONS1%2fview%2fSOALL.controller.js",
+      "SOIS": "SOFULFIL_MONS1%2fview%2fSOIS.controller.js",
+      "SOProcessDetails": "SOFULFIL_MONS1%2fview%2fSOProcessDetails.controller.js",
+      "SOProcessFlow": "SOFULFIL_MONS1%2fview%2fSOProcessFlow.controller.js",
+      "SU01": "SOFULFIL_MONS1%2fview%2fSU01.controller.js",
+      "SU01Item": "SOFULFIL_MONS1%2fview%2fSU01Item.controller.js",
+      "SU02": "SOFULFIL_MONS1%2fview%2fSU02.controller.js"
+    },
+    "views": {
+      "Main": "SOFULFIL_MONS1%2fMain.view.xml",
+      "DE01": "SOFULFIL_MONS1%2fview%2fDE01.view.xml",
+      "DE03": "SOFULFIL_MONS1%2fview%2fDE03.view.xml",
+      "DE03Item": "SOFULFIL_MONS1%2fview%2fDE03Item.view.xml",
+      "DE04": "SOFULFIL_MONS1%2fview%2fDE04.view.xml",
+      "DE05": "SOFULFIL_MONS1%2fview%2fDE05.view.xml",
+      "Empty": "SOFULFIL_MONS1%2fview%2fEmpty.view.xml",
+      "IN01": "SOFULFIL_MONS1%2fview%2fIN01.view.xml",
+      "IN02": "SOFULFIL_MONS1%2fview%2fIN02.view.xml",
+      "SO01": "SOFULFIL_MONS1%2fview%2fSO01.view.xml",
+      "SO01_Item": "SOFULFIL_MONS1%2fview%2fSO01_Item.view.xml",
+      "SO02": "SOFULFIL_MONS1%2fview%2fSO02.view.xml",
+      "SO02IssueDetailsInfo": "SOFULFIL_MONS1%2fview%2fSO02IssueDetailsInfo.view.xml",
+      "SO02Item": "SOFULFIL_MONS1%2fview%2fSO02Item.view.xml",
+      "SO03": "SOFULFIL_MONS1%2fview%2fSO03.view.xml",
+      "SO04": "SOFULFIL_MONS1%2fview%2fSO04.view.xml",
+      "SO04IssueDetailsInfo": "SOFULFIL_MONS1%2fview%2fSO04IssueDetailsInfo.view.xml",
+      "SO04Item": "SOFULFIL_MONS1%2fview%2fSO04Item.view.xml",
+      "SO05": "SOFULFIL_MONS1%2fview%2fSO05.view.xml",
+      "SO05Item": "SOFULFIL_MONS1%2fview%2fSO05Item.view.xml",
+      "SO06": "SOFULFIL_MONS1%2fview%2fSO06.view.xml",
+      "SO06Item": "SOFULFIL_MONS1%2fview%2fSO06Item.view.xml",
+      "SOALL": "SOFULFIL_MONS1%2fview%2fSOALL.view.xml",
+      "SOIS": "SOFULFIL_MONS1%2fview%2fSOIS.view.xml",
+      "SOProcessDetails": "SOFULFIL_MONS1%2fview%2fSOProcessDetails.view.xml",
+      "SOProcessFlow": "SOFULFIL_MONS1%2fview%2fSOProcessFlow.view.xml",
+      "SU01": "SOFULFIL_MONS1%2fview%2fSU01.view.xml",
+      "SU01Item": "SOFULFIL_MONS1%2fview%2fSU01Item.view.xml",
+      "SU02": "SOFULFIL_MONS1%2fview%2fSU02.view.xml"
+    },
+    "fragments": {
+      "Attachments": "SOFULFIL_MONS1%2fview%2fAttachments.fragment.xml",
+      "Contacts": "SOFULFIL_MONS1%2fview%2fContacts.fragment.xml",
+      "DE01_ObjectHeader": "SOFULFIL_MONS1%2fview%2fDE01_ObjectHeader.fragment.xml",
+      "DE03_ObjectHeader": "SOFULFIL_MONS1%2fview%2fDE03_ObjectHeader.fragment.xml",
+      "DE04_ObjectHeader": "SOFULFIL_MONS1%2fview%2fDE04_ObjectHeader.fragment.xml",
+      "DE05_ObjectHeader": "SOFULFIL_MONS1%2fview%2fDE05_ObjectHeader.fragment.xml",
+      "IN01_ObjectHeader": "SOFULFIL_MONS1%2fview%2fIN01_ObjectHeader.fragment.xml",
+      "IN02_CustomerInfoForm": "SOFULFIL_MONS1%2fview%2fIN02_CustomerInfoForm.fragment.xml",
+      "IN02_DeliveryInfoForm": "SOFULFIL_MONS1%2fview%2fIN02_DeliveryInfoForm.fragment.xml",
+      "IN02_ObjectHeader": "SOFULFIL_MONS1%2fview%2fIN02_ObjectHeader.fragment.xml",
+      "Notes": "SOFULFIL_MONS1%2fview%2fNotes.fragment.xml",
+      "SO01_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO01_ObjectHeader.fragment.xml",
+      "SO02_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO02_ObjectHeader.fragment.xml",
+      "SO03_DE04_CreditStatus": "SOFULFIL_MONS1%2fview%2fSO03_DE04_CreditStatus.fragment.xml",
+      "SO03_DE04_CustomerDetails": "SOFULFIL_MONS1%2fview%2fSO03_DE04_CustomerDetails.fragment.xml",
+      "SO03_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO03_ObjectHeader.fragment.xml",
+      "SO04_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO04_ObjectHeader.fragment.xml",
+      "SO05_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO05_ObjectHeader.fragment.xml",
+      "SO06ATPResult": "SOFULFIL_MONS1%2fview%2fSO06ATPResult.fragment.xml",
+      "SO06_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSO06_ObjectHeader.fragment.xml",
+      "SOALLFilterSettings": "SOFULFIL_MONS1%2fview%2fSOALLFilterSettings.fragment.xml",
+      "SOALLIncompletion": "SOFULFIL_MONS1%2fview%2fSOALLIncompletion.fragment.xml",
+      "SOALLIssues": "SOFULFIL_MONS1%2fview%2fSOALLIssues.fragment.xml",
+      "SOALLSortSettings": "SOFULFIL_MONS1%2fview%2fSOALLSortSettings.fragment.xml",
+      "SU01_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSU01_ObjectHeader.fragment.xml",
+      "SU02_ObjectHeader": "SOFULFIL_MONS1%2fview%2fSU02_ObjectHeader.fragment.xml",
+      "SalesOrderProcessingDetails": "SOFULFIL_MONS1%2fview%2fSalesOrderProcessingDetails.fragment.xml"
+    },
+    "type": "abaprep",
+    "shouldLinkComponentToManifest": true,
+    "component": "SOFULFIL_MONS1%2fComponent.js",
+    "configuration": "SOFULFIL_MONS1%2fConfiguration.js",
+    "manifest": "SOFULFIL_MONS1%2fmanifest.json",
+    "versionJsonPath": "SOFULFIL_MONS1%2fversion.json",
+    "minUI5Version": "1.48.1",
+    "system": {
+      "name": "S4H_JP_HTTP",
+      "description": "S4H_JP_HTTP",
+      "proxyUrlPrefix": "/destinations/S4H_JP_HTTP",
+      "path": "/sap/bc/adt",
+      "url": "/destinations/S4H_JP_HTTP/sap/bc/adt",
+      "wattUsage": "dev_abap",
+      "systemId": "S4H_JP",
+      "entryPath": "/sap/bc/adt",
+      "sapClient": "",
+      "additionalData": []
+    },
+    "discoveryStatus": {
+      "csrfToken": "iU7nrISm5oHc38cSO9iqmw==",
+      "transports": "/destinations/S4H_JP_HTTP/sap/bc/adt/cts/transports",
+      "transportchecks": "/destinations/S4H_JP_HTTP/sap/bc/adt/cts/transportchecks",
+      "filestore_ui5_bsp": "/destinations/S4H_JP_HTTP/sap/bc/adt/filestore/ui5-bsp/objects",
+      "search": "/destinations/S4H_JP_HTTP/sap/bc/adt/repository/informationsystem/search",
+      "ato_settings": "/destinations/S4H_JP_HTTP/sap/bc/adt/ato/settings",
+      "ui5_rt_version": "/destinations/S4H_JP_HTTP/sap/bc/adt/filestore/ui5-bsp/ui5-rt-version",
+      "description": "S4H_JP_HTTP",
+      "proxyUrlPrefix": "/destinations/S4H_JP_HTTP"
+    },
+    "BSPName": "SOFULFIL_MONS1",
+    "namespace": "cus.sd.sofulfil.monitor.s1",
+    "resourceBundle": "i18n/i18n.properties",
+    "parentResourceRootUrl": "/destinations/S4H_JP_HTTP/sap/bc/ui5_ui5/sap/SOFULFIL_MONS1"
+  },
+  "basevalidator": {
+    "services": {
+      "xml": "fioriXmlAnalysis",
+      "js": "fioriJsValidator"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  },
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "buildRequired": true
+  },
+  "deploy": {
+    "destination": "S4H_JP_HTTP",
+    "name": "ZUX_F0029_LOUIS"
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZF0029_EXTENSION_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  }
+}
